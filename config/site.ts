@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Naman Barkiya - Applied AI Engineer",
-  authorName: "Naman Barkiya",
-  username: "namanbarkiya",
+  name: "Zain Javed - Full Stack Developer",
+  authorName: "Zain Javed",
+  username: "zaykhere",
   description:
-    "Naman Barkiya - Applied AI Engineer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions in software development and AI.",
+    "Zain Javed - A Full Stack Web Developer with 4+ years of experience designing reliable backends, modern frontends, and production-ready systems.",
   url: "https://nbarkiya.xyz",
   links: {
     twitter: "https://x.com/namanbarkiya",
@@ -17,8 +17,13 @@ export const siteConfig = {
   logoIcon:
     "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
   keywords: [
-    "Naman Barkiya",
-    "Applied AI Engineer",
+    "Zain Javed",
+    "Node.js Developer",
+    "React Native Developer",
+    "JavaScript Developer",
+    "Postgres",
+    "Apache Kafka",
+    "MySQL",
     "AI Engineer",
     "Software Engineer",
     "Full Stack Developer",

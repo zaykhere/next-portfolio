@@ -8,18 +8,10 @@ export const routesConfig: any = {
       title: "Experience",
       href: "/experience",
     },
-    {
-      title: "Contributions",
-      href: "/contributions",
-    },
-    {
-      title: "Skills",
-      href: "/skills",
-    },
-    {
-      title: "Blogs",
-      href: "/blogs",
-    },
+    // {
+    //   title: "Skills",
+    //   href: "/skills",
+    // },
     {
       title: "Contact",
       href: "/contact",

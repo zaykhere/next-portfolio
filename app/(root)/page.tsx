@@ -21,12 +21,12 @@ import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
 import { getFeaturedBlogs } from "@/lib/blogs";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
+import profileImg from "@/public/profile-img.png";
+import { ContactForm } from "@/components/forms/contact-form";
 
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
-  description:
-    "Naman Barkiya - Applied AI Engineer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions.",
+  description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,
   },
@@ -79,13 +79,22 @@ export default function IndexPage() {
 
       <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
+          {/* Availability Badge */}
+          <div className="flex items-center gap-2 px-3 py-1 mb-4 border border-emerald-500/30 bg-emerald-500/10 rounded-full w-fit mx-auto">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              Available for new opportunities
+            </p>
+          </div>
           <Image
             src={profileImg}
-            height={100}
-            width={100}
-            sizes="100vw"
-            className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
-            alt="Naman Barkiya - Applied AI Engineer Portfolio"
+            height={200} // Set to 256 for your 256px requirement
+            width={200} // Set to 256 for your 256px requirement
+            className="bg-primary rounded-full aspect-square object-cover object-top border-8 border-primary shadow-xl"
+            alt="Zain Javed - Full Stack Engineer Portfolio"
             priority
           />
           <AnimatedText
@@ -93,19 +102,19 @@ export default function IndexPage() {
             delay={0.2}
             className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Naman Barkiya
+            Zain Javed
           </AnimatedText>
           <AnimatedText
             as="h3"
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            Applied AI Engineer
+            Full Stack Developer
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software engineer working at the intersection of AI, data, and
-              scalable software systems.
+              A Full Stack Web Developer with 4+ years of experience designing
+              reliable backends, modern frontends, and production-ready systems.
             </p>
           </div>
 
@@ -222,7 +231,7 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
-      <AnimatedSection
+      {/* <AnimatedSection
         direction="up"
         className="container space-y-6 bg-muted py-10 my-14"
         id="contributions"
@@ -250,7 +259,7 @@ export default function IndexPage() {
             </Button>
           </Link>
         </AnimatedText>
-      </AnimatedSection>
+      </AnimatedSection> */}
       <AnimatedSection
         direction="up"
         className="container space-y-6 py-10 my-14"
@@ -291,7 +300,7 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
-      <AnimatedSection
+      {/* <AnimatedSection
         direction="up"
         className="container space-y-6 bg-muted py-10 my-14"
         id="skills"
@@ -319,6 +328,27 @@ export default function IndexPage() {
             </Button>
           </Link>
         </AnimatedText>
+      </AnimatedSection> */}
+
+      <AnimatedSection direction="up" className="container space-y-6 py-10 my-14" id="skills">
+      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <AnimatedText
+            as="h2"
+            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
+          >
+            Contact Form
+            
+            </AnimatedText>
+            <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            Let's connect and explore collaborations.
+          </AnimatedText>
+            </div>
+        <ContactForm />
+        
       </AnimatedSection>
     </ClientPageWrapper>
   );

@@ -48,7 +48,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
           <div className="w-full p-4 sm:p-6 bg-background border border-border rounded-lg transition-all duration-300">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="flex items-start gap-4 flex-1 min-w-0">
-                {experience.logo && (
+                {/* {experience.logo && (
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
                     <Image
                       src={experience.logo}
@@ -58,7 +58,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                       className="w-full h-full object-contain p-2"
                     />
                   </div>
-                )}
+                )} */}
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
                     <h3 className="text-lg sm:text-xl font-bold text-foreground">
@@ -75,7 +75,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                     <span className="text-sm font-medium text-muted-foreground">
                       {experience.company}
                     </span>
-                    {experience.companyUrl && (
+                    {/* {experience.companyUrl && (
                       <a
                         href={experience.companyUrl}
                         target="_blank"
@@ -84,7 +84,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                       >
                         <Icons.externalLink className="w-4 h-4" />
                       </a>
-                    )}
+                    )} */}
                   </div>
                   <p className="text-sm text-muted-foreground mb-2">
                     {experience.location}

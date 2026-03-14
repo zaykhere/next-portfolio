@@ -91,30 +91,30 @@ export default async function ExperienceDetailPage({
         </AnimatedSection>
       ),
     },
-    {
-      value: "achievements",
-      label: "Achievements",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Key Achievements
-            </h3>
-            <ul className="space-y-3">
-              {experience.achievements.map((achievement, idx) => (
-                <li
-                  key={idx}
-                  className="text-base leading-relaxed flex items-start gap-3"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AnimatedSection>
-      ),
-    },
+    // {
+    //   value: "achievements",
+    //   label: "Achievements",
+    //   content: (
+    //     <AnimatedSection delay={0.3}>
+    //       <div>
+    //         <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+    //           Key Achievements
+    //         </h3>
+    //         <ul className="space-y-3">
+    //           {experience.achievements.map((achievement, idx) => (
+    //             <li
+    //               key={idx}
+    //               className="text-base leading-relaxed flex items-start gap-3"
+    //             >
+    //               <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+    //               {achievement}
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </div>
+    //     </AnimatedSection>
+    //   ),
+    // },
     {
       value: "skills",
       label: "Skills",
@@ -153,7 +153,7 @@ export default async function ExperienceDetailPage({
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                    {experience.logo && (
+                    {/* {experience.logo && (
                       <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
                         <Image
                           src={experience.logo}
@@ -163,7 +163,7 @@ export default async function ExperienceDetailPage({
                           className="w-full h-full object-contain p-2"
                         />
                       </div>
-                    )}
+                    )} */}
                     <div className="flex-1 text-center sm:text-left">
                       <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                         {experience.position}
@@ -172,7 +172,7 @@ export default async function ExperienceDetailPage({
                         <span className="text-md font-medium text-muted-foreground">
                           {experience.company}
                         </span>
-                        {experience.companyUrl && (
+                        {/* {experience.companyUrl && (
                           <a
                             href={experience.companyUrl}
                             target="_blank"
@@ -181,7 +181,7 @@ export default async function ExperienceDetailPage({
                           >
                             <Icons.externalLink className="w-4 h-4" />
                           </a>
-                        )}
+                        )} */}
                       </div>
                       <p className="text-muted-foreground">
                         {experience.location}
