@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://nbarkiya.xyz",
   links: {
     twitter: "https://x.com/namanbarkiya",
-    github: "https://github.com/namanbarkiya",
+    github: "https://github.com/zaykhere",
     templateRepo: "https://github.com/namanbarkiya/minimal-next-portfolio",
   },
   ogImage:

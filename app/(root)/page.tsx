@@ -112,10 +112,13 @@ export default function IndexPage() {
             Full Stack Developer
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
-            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
+            {/* <p className="leading-normal text-muted-foreground text-sm sm:text-base">
               A Full Stack Web Developer with 4+ years of experience designing
               reliable backends, modern frontends, and production-ready systems.
-            </p>
+            </p> */}
+            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
+            I’m a Full-Stack Web Developer with 4 years of experience building scalable web applications and backend systems. I specialize in TypeScript, Node.js, React, and Next.js, with a strong focus on clean architecture, reliable APIs, and well-designed databases. I also build AI-powered systems including RAG pipelines, LangChain integrations, and voice agents, combining modern web development with intelligent automation.
+            </p>  
           </div>
 
           <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">

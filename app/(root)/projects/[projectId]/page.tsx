@@ -18,7 +18,7 @@ interface ProjectPageProps {
   }>;
 }
 
-const githubUsername = "namanbarkiya";
+const githubUsername = "zaykhere";
 
 export default async function Project({ params }: ProjectPageProps) {
   const { projectId } = await params;
@@ -71,16 +71,26 @@ export default async function Project({ params }: ProjectPageProps) {
             href={siteConfig.links.github}
             className="flex items-center space-x-2 text-sm"
           >
-            <Image
+            {/* <Image
               src={profileImg}
-              alt={"naman"}
-              width={42}
-              height={42}
-              className="rounded-full bg-background"
-            />
+              alt={"zain"}
+              width={50}
+              height={50}
+              className="rounded-full object-cover object-top"
+            /> */}
+
+<div className="flex-shrink-0"> {/* Prevents the circle from being squashed by the text next to it */}
+  <Image
+    src={profileImg}
+    alt="zain"
+    width={50}
+    height={50}
+    className="rounded-full aspect-square object-cover object-top"
+  />
+</div>
 
             <div className="flex-1 text-left leading-tight">
-              <p className="font-medium">{"Naman Barkiya"}</p>
+              <p className="font-medium">{"Zain Javed"}</p>
               <p className="text-[12px] text-muted-foreground">
                 @{siteConfig.username}
               </p>
