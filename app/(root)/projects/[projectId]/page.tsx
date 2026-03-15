@@ -40,12 +40,12 @@ export default async function Project({ params }: ProjectPageProps) {
         All Projects
       </Link>
       <div>
-        <time
+        {/* <time
           dateTime={Date.now().toString()}
           className="block text-sm text-muted-foreground"
         >
           {formatDateFromObj(project.startDate)}
-        </time>
+        </time> */}
         <h1 className="flex items-center justify-between mt-2 font-heading text-4xl leading-tight lg:text-5xl">
           {project.companyName}
           <div className="flex items-center">
@@ -125,8 +125,9 @@ export default async function Project({ params }: ProjectPageProps) {
           bullets={project.descriptionDetails.bullets}
         />
       </div>
-
-      <div className="mb-7 ">
+      
+      {project.pagesInfoArr.length > 0 && (
+        <div className="mb-7 ">
         <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-5">
           Page Info
         </h2>
@@ -152,6 +153,8 @@ export default async function Project({ params }: ProjectPageProps) {
           </div>
         ))}
       </div>
+      )}
+      
 
       <hr className="mt-12" />
       <div className="flex justify-center py-6 lg:py-10">
