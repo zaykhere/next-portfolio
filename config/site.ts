@@ -4,18 +4,18 @@ export const siteConfig = {
   username: "zaykhere",
   description:
     "Zain Javed - A Full Stack Web Developer with 4+ years of experience designing reliable backends, modern frontends, and production-ready systems.",
-  url: "https://nbarkiya.xyz",
+  url: "https://zainthedev.com",
   links: {
-    twitter: "https://x.com/namanbarkiya",
+    twitter: "https://x.com",
     github: "https://github.com/zaykhere",
     templateRepo: "https://github.com/namanbarkiya/minimal-next-portfolio",
   },
   ogImage:
-    "https://res.cloudinary.com/dvt5vkfwz/image/upload/v1767384721/naman_portfolio_og_image.png",
+    "https://res.cloudinary.com/zainhither/image/upload/v1773685112/portfolio/Untitled_gg0fxx.png",
   iconIco:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357384/assets/naman-favicon.ico",
+    "https://res.cloudinary.com/zainhither/image/upload/v1773685189/portfolio/favicon_fdmy6f.ico",
   logoIcon:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
+    "https://res.cloudinary.com/zainhither/image/upload/v1773685154/portfolio/Gemini_Generated_Image_pmvt6jpmvt6jpmvt-removebg-preview_wfaw70.png",
   keywords: [
     "Zain Javed",
     "Node.js Developer",
