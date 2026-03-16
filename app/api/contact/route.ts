@@ -1,30 +1,72 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { sql } from "@/lib/db";
+import { z } from "zod";
+import { RateLimiterMemory } from "rate-limiter-flexible";
 
-export async function POST(req: Request) {
-  const formLink = process.env.GOOGLE_FORM_LINK;
-  if (!formLink) {
-    return new NextResponse("Please configure the env variables", {
-      status: 500,
-    });
-  }
+const rateLimiter = new RateLimiterMemory({
+  points: 5, // 5 requests
+  duration: 60 * 5, // per 5 minutes
+});
 
-  // configure this according to your google form
-  const fieldIdName = process.env.GOOGLE_FORM_FIELD_ID_NAME;
-  const fieldIdEmail = process.env.GOOGLE_FORM_FIELD_ID_EMAIL;
-  const fieldIdMessage = process.env.GOOGLE_FORM_FIELD_ID_MESSAGE;
-  const fieldIdSocial = process.env.GOOGLE_FORM_FIELD_ID_SOCIAL;
+const schema = z.object({
+  name: z.string().min(3),
+  email: z.string().email(),
+  message: z.string().min(5).max(2000),
+  social: z.string().optional(),
+  honeypot: z.string().optional(), // spam trap
+});
 
+export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { name, message, social, email } = body;
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
-    const res = await fetch(
-      `${formLink}/formResponse?${fieldIdName}=${name}&${fieldIdEmail}=${email}&${fieldIdMessage}=${message}&${fieldIdSocial}=${social}`
+    // rate limit
+    try {
+      await rateLimiter.consume(ip);
+    } catch {
+      return NextResponse.json(
+        { error: "Too many requests" },
+        { status: 429 }
+      );
+    }
+
+    const body = await req.json();
+
+    // honeypot spam check
+    if (body.honeypot && body.honeypot !== "") {
+      return NextResponse.json({ ok: true });
+    }
+
+    const data = schema.parse(body);
+
+    // block suspicious messages
+    const spamWords = ["viagra", "casino", "crypto", "loan"];
+    const isSpam = spamWords.some((word) =>
+      data.message.toLowerCase().includes(word)
     );
 
-    return NextResponse.json("Success!");
+    if (isSpam) {
+      return NextResponse.json(
+        { error: "Spam detected" },
+        { status: 400 }
+      );
+    }
+
+    await sql`
+      INSERT INTO contacts (name, email, message, social, ip)
+      VALUES (${data.name}, ${data.email}, ${data.message}, ${data.social}, ${ip})
+    `;
+
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.log(error);
-    return new NextResponse("Internal error", { status: 500 });
+    console.error(error);
+
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }

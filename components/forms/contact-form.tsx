@@ -27,6 +27,7 @@ const formSchema = z.object({
     message: "Please write something more descriptive.",
   }),
   social: z.string().url().optional().or(z.literal("")),
+  honeypot: z.any().optional()
 });
 
 export function ContactForm() {
@@ -41,8 +42,11 @@ export function ContactForm() {
       email: "",
       message: "",
       social: "",
+      honeypot: ""
     },
   });
+
+  const { isSubmitting } = form.formState;
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -134,7 +138,15 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+
+<input
+  type="text"
+  {...form.register("honeypot")}
+  style={{ display: "none" }}
+/>
+<Button type="submit" disabled={isSubmitting}>
+  {isSubmitting ? "Sending..." : "Submit"}
+</Button>
       </form>
     </Form>
   );
